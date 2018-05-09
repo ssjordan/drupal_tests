@@ -25,10 +25,9 @@ COPY install-composer.sh /usr/local/bin/
 RUN install-composer.sh
 
 # Install Docker
-RUN apt-get install apt-transport-https dirmngr
-RUN echo 'deb https://apt.dockerproject.org/repo debian-stretch main' >> /etc/apt/sources.list
+RUN echo 'deb http://apt.dockerproject.org/repo debian-stretch main' >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install docker-engine
+RUN apt-get install --allow-unauthenticated  -y  docker-engine
 
 
 
