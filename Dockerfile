@@ -24,6 +24,15 @@ RUN echo 'extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/imag
 COPY install-composer.sh /usr/local/bin/
 RUN install-composer.sh
 
+# Install Docker
+RUN apt-get install apt-transport-https dirmngr
+RUN echo 'deb https://apt.dockerproject.org/repo debian-stretch main' >> /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install docker-engine
+
+
+
+
 # Install Robo CI.
 RUN wget https://robo.li/robo.phar
 RUN chmod +x robo.phar && mv robo.phar /usr/local/bin/robo
